@@ -1,0 +1,209 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 HelveticaNeue;\f2\fnil\fcharset0 Menlo-Regular;
+\f3\fnil\fcharset0 Menlo-Bold;}
+{\colortbl;\red255\green255\blue255;\red36\green36\blue36;\red255\green255\blue255;\red240\green240\blue240;
+\red23\green135\blue182;\red38\green38\blue38;\red242\green242\blue242;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 Para a\'f1adir elementos mediante JS a un html, en el JS habr\'eda que usar el comando .append()\
+\
+$(\'93#header\'94).append(\'93Hello world!\'94)\
+\
+Tambi\'e9n puedes poner .prepend para ponerlo justo antes. Si por ejemplo tenemos un div llamado A con varios elementos divs interiores llamados B y C, si ponemos append, este nuevo campo se pondr\'e1 bajo C, si ponemos prepend se pondr\'e1 justo encima de B, es decir, al inicio de div A.\
+\
+
+\f1\fs28 \cf2 \cb3 Como otros lenguajes de programaci\'f3n, JavaScript incluye operadores aritm\'e9ticos.\
+\pard\pardeftab720\sl460\sa300
+
+\f2\fs26 \cf2 \cb4 +
+\f1\fs28 \cb3  suma\
+
+\f2\fs26 \cb4 -
+\f1\fs28 \cb3  substracci\'f3n\
+
+\f2\fs26 \cb4 *
+\f1\fs28 \cb3  multiplicaci\'f3n\
+
+\f2\fs26 \cb4 /
+\f1\fs28 \cb3  divisi\'f3n\
+
+\f2\fs26 \cb4 (
+\f1\fs28 \cb3  y 
+\f2\fs26 \cb4 )
+\f1\fs28 \cb3  control de precedencia de operaciones\
+En la {\field{\*\fldinst{HYPERLINK "https://www.udacity.com/course/cs101"}}{\fldrslt \cf5 introducci\'f3n a las ciencias de la computaci\'f3n}}, Dave Evans te reto a usar Python para convertir la velocidad de la luz de metros/segundo a cent\'edmetro/segundo. Veamos si puedes realizar el mismo calculo usando JavaScript en la consola del navegador. Aqu\'ed hay unos cuantos numeros que necesitaras:\
+\pard\pardeftab720\sl440
+
+\f2\fs26 \cf6 \cb7 velocidad de la luz = 299792458 metros/segundo\
+1 metro = 100 cent\'edmetros\
+1 nanosegundo = 1.0/1000000000 segundos\
+\pard\pardeftab720\sl460\sa300
+
+\f1\fs28 \cf2 \cb3 Que tan r\'e1pido es la luz en cent\'edmetro/nanosegundo? Click "Continue to quiz" cuando tengas la respuesta.\
+\
+VARIABLES\
+Para almacenar variables hay que a\'f1adir var delante del nombre de la variable:\
+var nombre = \'93Javi\'94;\
+var edad = 27;\
+var array = [ ];\
+var function()\{\};\
+var object \{\};\
+PARA CORTAR/HACER MAY\'daSCULAS\
+The way I solved it is with a mix of using indicies, the 
+\f2\fs26 \cb4 string.toUpperCase()
+\f1\fs28 \cb3  method and the
+\f2\fs26 \cb4 string.slice()
+\f1\fs28 \cb3  method.\
+Here's my code:\
+\pard\pardeftab720\sl440
+
+\f2\fs26 \cf6 \cb7 var s = "audacity";\
+s = s[1].toUpperCase() + s.slice(2);\
+\pard\pardeftab720\sl460\sa300
+
+\f1\fs28 \cf2 \cb3 Let's break it down.\
+\pard\pardeftab720\sl500\sa230
+
+\f3\b\fs32 \cf2 \cb4 s[1]
+\f1\fs36 \cb3 \
+\pard\pardeftab720\sl460\sa300
+
+\b0\fs28 \cf2 First, I want the 
+\f2\fs26 \cb4 "U"
+\f1\fs28 \cb3  to be uppercase, so I use the index of the 
+\f2\fs26 \cb4 "U"
+\f1\fs28 \cb3 , which is 
+\f2\fs26 \cb4 1
+\f1\fs28 \cb3 , to grab it with brackets. JavaScript lets us use brackets to select 
+\b one
+\b0  character of a string (and later, you'll see that you can do the same with an array).\
+\pard\pardeftab720\sl500\sa230
+
+\f3\b\fs32 \cf2 \cb4 s[1].toUpperCase()
+\f1\fs36 \cb3 \
+\pard\pardeftab720\sl460\sa300
+
+\f2\b0\fs26 \cf2 \cb4 .toUpperCase()
+\f1\fs28 \cb3  is a string method, meaning it acts on the 
+\f2\fs26 \cb4 string
+\f1\fs28 \cb3  it's attached to, which in this case is the 
+\f2\fs26 \cb4 "U"
+\f1\fs28 \cb3  from 
+\f2\fs26 \cb4 s[1]
+\f1\fs28 \cb3 .\
+At this point, 
+\f2\fs26 \cb4 s[1].toUpperCase()
+\f1\fs28 \cb3  is equal to 
+\f2\fs26 \cb4 "U"
+\f1\fs28 \cb3 .\
+\pard\pardeftab720\sl500\sa230
+
+\f3\b\fs32 \cf2 \cb4 +
+\f1\fs36 \cb3 \
+\pard\pardeftab720\sl460\sa300
+
+\b0\fs28 \cf2 The 
+\f2\fs26 \cb4 +
+\f1\fs28 \cb3  concatenates, or adds together, strings. For instance 
+\f2\fs26 \cb4 "Hello " + "JS students!"
+\f1\fs28 \cb3  will result in
+\f2\fs26 \cb4 "Hello JS students!"
+\f1\fs28 \cb3 .\
+\pard\pardeftab720\sl500\sa230
+
+\f3\b\fs32 \cf2 \cb4 s.slice(2)
+\f1\fs36 \cb3 \
+\pard\pardeftab720\sl460\sa300
+
+\f2\b0\fs26 \cf2 \cb4 .slice()
+\f1\fs28 \cb3  is another string method, which acts on the string 
+\f2\fs26 \cb4 s
+\f1\fs28 \cb3  in this case. 
+\f2\fs26 \cb4 .slice(start, [end])
+\f1\fs28 \cb3 will grab the part of the string from the index of 
+\f2\fs26 \cb4 start
+\f1\fs28 \cb3  to the index of 
+\f2\fs26 \cb4 end
+\f1\fs28 \cb3 . The fact that 
+\f2\fs26 \cb4 [end]
+\f1\fs28 \cb3 shows up in brackets means that it's optional. If it isn't there, then 
+\f2\fs26 \cb4 .slice()
+\f1\fs28 \cb3  will select all of the string from 
+\f2\fs26 \cb4 start
+\f1\fs28 \cb3  to the very end of the string. 
+\f2\fs26 \cb4 s.slice(2)
+\f1\fs28 \cb3  gives us 
+\f2\fs26 \cb4 "dacity"
+\f1\fs28 \cb3 .\
+Concatenated together, we get 
+\f2\fs26 \cb4 "Udacity"
+\f1\fs28 \cb3 !\
+TRUTHY AND FALSY\
+There are only six falsy values in JavaScript so it is easiest to memorize those:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl460
+\ls1\ilvl0
+\f2\fs26 \cf2 \cb4 {\listtext	\'95	}false
+\f1\fs28 \cb3 \
+\ls1\ilvl0
+\f2\fs26 \cb4 {\listtext	\'95	}0
+\f1\fs28 \cb3  (zero)\
+\ls1\ilvl0
+\f2\fs26 \cb4 {\listtext	\'95	}""
+\f1\fs28 \cb3  (empty string)\
+\ls1\ilvl0
+\f2\fs26 \cb4 {\listtext	\'95	}null
+\f1\fs28 \cb3 \
+\ls1\ilvl0
+\f2\fs26 \cb4 {\listtext	\'95	}undefined
+\f1\fs28 \cb3 \
+\ls1\ilvl0
+\f2\fs26 \cb4 {\listtext	\'95	}NaN
+\f1\fs28 \cb3 \
+\pard\pardeftab720\sl460\sa300
+\cf2 You can learn more about some of the quirks of truthy and falsy {\field{\*\fldinst{HYPERLINK "http://www.sitepoint.com/javascript-truthy-falsy/"}}{\fldrslt \cf5 here}}.\
+\pard\pardeftab720\sl460\sa460
+\cf2 \
+\pard\pardeftab720\sl460\sa300
+\cf2 What is 
+\f2\fs26 \cb4 NaN
+\f1\fs28 \cb3 ? 
+\f2\fs26 \cb4 NaN
+\f1\fs28 \cb3 , or Not a Number, is a value that turns up when we ask Javascript to do certain impossible things in arithmetic -- like divide zero by zero.\
+Try it in the console -- and see if you can find the other two special numeric values, 
+\f2\fs26 \cb4 Infinity
+\f1\fs28 \cb3  and 
+\f2\fs26 \cb4 -Infinity
+\f1\fs28 \cb3 .\
+One last note: at 1:25, Cameron mentions that 
+\f2\fs26 \cb4 undefined
+\f1\fs28 \cb3  means "that a variable doesn't exist and the interpreter doesn't know what you're referring to." This isn't quite true. If you try to use a 
+\f2\fs26 \cb4 var
+\f1\fs28 \cb3  that hasn't been defined, you get a 
+\f2\fs26 \cb4 ReferenceError
+\f1\fs28 \cb3 . You will see 
+\f2\fs26 \cb4 undefined
+\f1\fs28 \cb3  if you declare a variable but don't assign it any values. Like so:\
+\pard\pardeftab720\sl440
+
+\f2\fs26 \cf6 \cb7 var a;\
+a;\
+\pard\pardeftab720\sl460\sa300
+
+\f1\fs28 \cf2 \cb3 will result in 
+\f2\fs26 \cb4 undefined
+\f1\fs28 \cb3 . But\
+\pard\pardeftab720\sl440
+
+\f2\fs26 \cf6 \cb7 b;\
+\pard\pardeftab720\sl460\sa300
+
+\f1\fs28 \cf2 \cb3 will result in a 
+\f2\fs26 \cb4 ReferenceError
+\f1\fs28 \cb3  because 
+\f2\fs26 \cb4 b
+\f1\fs28 \cb3  hasn't been declared yet.\
+\
+}

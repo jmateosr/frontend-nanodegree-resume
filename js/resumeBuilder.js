@@ -1,24 +1,55 @@
-var awesomeThoughts = "I am Javi and I am AWESOME";
+var role = "Online Marketing Specialist";
 
-var funThoughts = awesomeThoughts.replace("AWESOME","FUN");
+var bio = {
+	"aboutMe":
+	  {
+		"name" : "Xavi",
+		"age" : "27"
+	  }
+	"contacts" :
+	  {
+		"email" : "j.mateos@adlpartner.es",
+		"linkedin" : "http://es.linkedin.com/in/jmateosr"
+	  }
+	"welcomeMessage" : "I'm Javi and I'm gonna kill u",
+	"skills" : [
+		"Master of the Universe", 
+		"Online MKT", 
+		"Front-End Developer"
+	  ]
+}
 
-console.log(awesomeThoughts);
+bio.aboutMe.rol = role;
+bio.contacts.twitter = "@jmateosr";
 
-console.log(funThoughts);
+/* JSON */
 
-var name = "Javier Mateos";
-
-var formattedName = HTMLheaderName.replace("%data%",name);
-
-var role = "Online Marketing Specialist"
-
-var formattedRole = HTMLheaderRole.replace("%data%",role);
-
-$("#header").prepend(formattedRole);
-
-$("#header").prepend(formattedName);
-
-var string1 = "audacity";
-var string2 = string1.slice(1);
-
-$("#header").prepend(string2);
+var education = {
+	"studies" : [
+	  {
+		"university" : "Universidad Complutense de Madrid",
+		"degree" : "Licenciatura en Comunicación Audiovisual",
+		"city" : "Madrid",
+		"country" : "Spain",
+		"years" : "2001-2007",
+		"tags" : ["cinema", "photography", "television", "marketing"]
+	  },
+	  {
+		"university" : "Université de Liège",
+		"degree" : "Arts du spectacle",
+		"city" : "Liège",
+		"country" : "Belgium",
+		"years" : "2006-2007",
+		"tags" : ["cinema", "photography", "documentary"]
+	  }
+	]
+	"online courses" :  
+	  {
+		"university" : "Udacity",
+		"degree" : "Front-End Developer Nanodegree",
+		"city" : "Madrid",
+		"country" : "Spain",
+		"years" : "2014-2015",
+		"tags" : ["programmation", "front-end", "html", "css", "JavaScript"]
+	  }
+}

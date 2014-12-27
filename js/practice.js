@@ -29,7 +29,7 @@ $("#header").prepend(string2);
 
 /* Arrays - Structure, length, select one item from an array...
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array*/
-var myArray = ["Javi", "estudiar", "udacity", "front-end ND"];
+var myArray = ["Javi", "front-end ND", "udacity", "estudiar"];
 $("#header").append(myArray.length);
 $("#header").append(myArray);
 var newArray = myArray.push("elemento1", "elemento2");
@@ -86,4 +86,56 @@ var education = {
 		"tags" : ["programmation", "front-end", "html", "css", "JavaScript"]
 	  }
 	]
-}pra
+}
+
+/* Replacing Elements */
+//MY CODE:
+var html = '<script src="http://hackyourwebsite.com/eviljavascript.js"></script>';
+
+var charEscape = function(_html) {
+    var newHTML = _html;
+    // How will you make sure that newHTML doesn't contain any < or > ?
+    // Your code goes here!
+    
+    var quitMinus = /</gi;
+    var quitMore = />/gi;
+    var quittedMinus = _html.replace(quitMinus, "&lt;");   
+    newHTML = quittedMinus.replace(quitMore, "&gt;");
+    // Don't delete this line!
+    return newHTML;
+};
+
+console.log(charEscape(html));
+
+// The Udacity Solution
+var charEscape = function(_html) {
+    var newHTML = _html;
+
+    newHTML = _html.replace(/</g, "&lt;");
+    newHTML = newHTML.replace(/>/g, "&gt;");
+
+    return newHTML;
+};
+
+/* WHILE, FOR, FOR IN LOOPS*/
+if(bio.aboutMe.name.length !== 0) {
+	var formattedName = HTMLheaderName.replace("%data%",bio.aboutMe.name);
+    $("#header").append(formattedName);
+}
+
+if(role.length !== 0) {
+	var formattedRole = HTMLheaderRole.replace("%data%",role);
+    $("#header").append(formattedRole);
+}
+
+if(bio.skills.length > 0) {
+    $("#header").append(HTMLskillsStart);
+
+    var formattedSkill = HTMLskills.replace("%data%",bio.skills[0]);
+    $("#skills").append(formattedSkill);
+    var formattedSkill = HTMLskills.replace("%data%",bio.skills[1]);
+    $("#skills").append(formattedSkill);
+    var formattedSkill = HTMLskills.replace("%data%",bio.skills[2]);
+    $("#skills").append(formattedSkill);
+    console.log("You're an skilled man, madafaka!")       
+}

@@ -262,7 +262,7 @@ FOR LOOP:
 	}
 
 FOR IN LOOP
-It easily iterate through arrays or objects
+It easily iterate through arrays or objects. MUY USADO EN ARRAYS Y OBJETOS!!
 	
 	for(item in object/array){
 		doSomething();
@@ -288,3 +288,134 @@ It easily iterate through arrays or objects
 
 	    console.log("You have some works too!")
 	}
+
+
+## FUNCTIONS
+A function let you group a series of statements together to perform a specific task. It different parts of a script repeat the same task, you can reuse the function (rather than repeating the same set of statements).
+
+This is an example of a function, with two parameters (can be optional): 
+	var myFunc = function(param1, param2){
+		//code goes here
+	}
+
+	//this also can be written as:
+
+	function myFunc(param1, param2){
+		//code goes here
+	}
+
+Into a function, we can add a "return" statement that make the function give back a value.
+
+	i.e.
+
+	var charEscape = function(_html) {
+	    var newHTML = _html;
+	    // How will you make sure that newHTML doesn't contain any < or > ?
+	    // Your code goes here!
+	    
+	    var quitMinus = /</gi;
+	    var quitMore = />/gi;
+	    var quittedMinus = _html.replace(quitMinus, "&lt;");   
+	    newHTML = quittedMinus.replace(quitMore, "&gt;");
+	    // Don't delete this line!
+	    return newHTML;
+	};
+
+## ENCAPSULATION
+As we can see, objects are bewteen {} but... functions too! That means that funcions are objects. Pretty much everything in JS is really an Object.
+
+It's useful to note that objects can encapsulate funcions as well. 
+
+projects.display = function() {
+	for(projs in projects){
+		$("#projects").append(HTMLprojectStart);
+
+		var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects[projs].title);
+		$(".project-entry:last").append(formattedProjectTitle);
+
+		var formattedProjectDates = HTMLprojectDates.replace("%data%", projects[projs].dates);
+		$(".project-entry:last").append(formattedProjectDates);
+
+		var formattedProjectDescr = HTMLprojectDescription.replace("%data%", projects[projs].description);
+		$(".project-entry:last").append(formattedProjectDescr);
+
+		var formattedProjectImage = HTMLprojectImage.replace("%data%", projects[projs].image);
+		$(".project-entry:last").append(formattedProjectImage);
+	}
+}
+
+projects.display();
+
+
+## ANONYMOUS FUNCTIONS
+Anonymous functions are functions that don't have a name and are often returned by other functions and objects.
+
+Some JavaScript libraries ask for a callback function to be executed once they have have the results of a task. Anonymous functions are used in these cases because there is not a need to call the function by name outside the confines of the enclosing function.
+
+For example, the code below reads a JSON file from the server. After loading, it executes an anonymous function to print out the data.
+
+	$.getJSON("test.json", function(data) {
+    	console.log(data);
+	});
+
+Anything that uses an anonymous function could also use a named function. The following code is also valid and is equivalent to what's listed above:
+
+	var printData = function(data){
+	  console.log(data)
+	};
+	$.getJSON("test.json", printData);
+
+If the function is only used once, or a limited number of times, an anonymous function may be syntactically lighter than using a named function.
+
+
+## MORE TIPS OF INTERACTIVITY:
+How to add maps:
+https://developers.google.com/maps/documentation/javascript/tutorial
+
+How to add charts:
+http://d3js.org/
+
+## FUNCTION-LEVEL SCOPE
+The scope of variables (including functions and objects) within a program describes which objects (and functions) can access them and from which objects they aren't accessible.
+
+JavaScript includes function level scope, which means that variables declared within a function are only available inside that function.
+
+Example 1
+
+	var outsideExample = "First string";
+	function example() {
+	    var outsideExample = "Second string";
+	}
+	example();
+	console.log(outsideExample); // "First string"
+
+Example 2
+
+	var outsideExample = "First string";
+	function example() {
+	    outsideExample = "Second string";
+	}
+	example();
+	console.log(outsideExample); // "Second string"
+
+In the first example, notice that we're using var within example(). var means we're declaring a new outsideExample variable within example(). There are two outsideExamples in our program, one with a global scope ("First string") and one with a function-level scope inside example().
+
+After we run example() and try to log outsideExample, we'll log the global version of outsideExample, which is "First string" because console.log() doesn't have access to the version of outsideExample that was created within example().
+
+A global scope means that the variable is accessible anywhere inside our program, which is why we don't need to use var in example 2. In example 2, there's only one version of outsideExample because we aren't declaring a new variable inside example(). Instead we're simply modifying the value of the original global variable outsideExample, which is why we log "Second string" at the end of example 2.
+
+
+## BLOCK-LEVEL SCOPE
+Blocks, like if-statements and any of the loops you've learned about, do not create their own scope.
+
+	var outsideExample = "First string";
+	if (true) {
+	    var outsideExample = "Second string";
+	    console.log(outsideExample);
+	}
+	console.log(outsideExample);
+The first console.log() obviously logs "Second string" as it comes right after we set the value of outsideExample to "Second string". But what about the second console.log()?
+
+Remember, if statements do not create their own scope. Unlike the last quiz, where we created a totally new variable inside a function, the if statement does not create a new variable. It simply overwrites the value of outsideExample to "Second string".
+
+So, the second time we console.log(), we see "Second string" again.

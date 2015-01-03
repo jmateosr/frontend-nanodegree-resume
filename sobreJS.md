@@ -419,3 +419,91 @@ The first console.log() obviously logs "Second string" as it comes right after w
 Remember, if statements do not create their own scope. Unlike the last quiz, where we created a totally new variable inside a function, the if statement does not create a new variable. It simply overwrites the value of outsideExample to "Second string".
 
 So, the second time we console.log(), we see "Second string" again.
+
+
+## FUNCTION DECLARATION SYNTAX
+As you've learned in this course, there are two syntaxes to declare functions
+
+	var functionName = function() {}
+
+and
+
+	function functionName() {}
+
+The JavaScript interpreter, which is responsible for taking the code you write and preparing it to become machine code, will handle the two function declarations slightly differently because of the way it handles variable declarations.
+
+All variable declarations will immediately get moved to the top of their scope. For example:
+
+	var x = 5;
+	console.log(x); // 5
+	var y = 10;
+is the same as
+
+	var x, y; // this line simply declares x and y at the same time.
+	x = 5;
+	console.log(x); // 5
+	y = 10;
+Notice how the declaration of y moved to the top of the scope. And also notice how the first line doesn't set a value for neither x nor y. After var x, y; both x and y are undefined.
+
+The same behavior holds true for other types of variables, including functions. If you use the var functionName syntax, only the function's declaration (e.g. var functionName;) gets moved at the top of its scope. However, if you use function functionName() syntax, the function declaration and definition (the actual instructions inside the function) get moved to the top of the function's scope.
+
+Example 1
+
+	example1();
+	function example1() {
+	    console.log("Ran the example");
+	}
+You should see "Ran the example!" when you run this code.
+
+Example 2
+
+	example2();
+	var example2 = function() {
+	    console.log("Ran the example");
+	}
+You should see an undefined error when this code gets run.
+
+In both examples, the interpreter modifies the code. This is effectively how this code is interpreted.
+
+EXAMPLE 1 INTERPRETED
+
+	var example1;
+	example1 = function() {
+	    console.log("Ran the example");
+	}
+	example1();
+
+EXAMPLE 2 INTERPRETED
+
+	var example2;
+	example2();
+	example2 = function() {
+	    console.log("Ran the example");
+	}
+
+In both examples, the declarations get moved to the top of the scope. But notice how the definition comes along too in the first example, which allows us to use example1() right away.
+
+
+## PLAYING WITH GOOGLE MAPS API
+Let's start by reading through the infoWindow constructor in the Google Maps API.
+
+It says that "After constructing an InfoWindow, you must call open to display it on the map."
+
+In other words, the infoWindow has an open method encapsulated in it that we must call to open each overlay.
+
+This is a good place to start. Let's take a look at the example to see how they open each infoWindow.
+
+Looking down through the example, it looks like they're opening the window here:
+
+	google.maps.event.addListener(marker, 'click', function() {
+	  infowindow.open(map, marker);
+	});
+They're calling the open() method on the infowindow object (in helper.js, we call it infoWindow) and pass in the map object and the marker object.
+
+But how did they know to pass in map and marker? The open(map, anchor) method described in the API explains that it needs a map first and then an anchor point. The anchor point is simply the position to open the map, which we obviously want to be the same as the map marker.
+
+So, in the end we simply add the line
+
+	infoWindow.open(map, marker)
+
+to the event listener for each map marker and we've got overlays!
